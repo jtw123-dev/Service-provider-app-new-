@@ -287,7 +287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 61582798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4dc2bf5b78c1844a826350c90ae88b, type: 3}
+  m_Script: {fileID: 11500000, guid: 10008491bbdd2f749bd61cd253a94998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _photoTaken: {fileID: 1631162215}
@@ -1442,7 +1442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -723}
+  m_AnchoredPosition: {x: 130, y: -587.49}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456578503
@@ -1556,7 +1556,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BACK
+  m_Text: SUBMIT
 --- !u!222 &465254094
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1695,12 +1695,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 522696044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddd8755cdc09b84cad0a48c697e98f4, type: 3}
+  m_Script: {fileID: 11500000, guid: be4b53e1390661f4bac36666184af195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeCase:
@@ -2647,7 +2647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &801786409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2841,9 +2841,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 686991020}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 61582801}
+        m_MethodName: ProcessInfo
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2852,9 +2852,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 61582801}
-        m_MethodName: ProcessInfo
-        m_Mode: 1
+      - m_Target: {fileID: 686991020}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3839,7 +3839,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1280962166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eca10218420efb42ab84418705b61ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 14731c749bb4a25438eb784a27b07f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _caseNumberTitle: {fileID: 591369797}
@@ -3848,7 +3848,7 @@ MonoBehaviour:
   _locationTitle: {fileID: 1345065315}
   _locationNotes: {fileID: 456578503}
   _photoNotes: {fileID: 314921438}
-  photoTaken: {fileID: 1562615140}
+  _photoTaken: {fileID: 1631162215}
 --- !u!1 &1285692208
 GameObject:
   m_ObjectHideFlags: 0
@@ -4109,7 +4109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 51.100098, y: 45.2}
+  m_AnchoredPosition: {x: 51.100098, y: 45.19995}
   m_SizeDelta: {x: 53, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333295143
@@ -4207,7 +4207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1345065314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4494,7 +4494,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2030746055}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.690998
+  m_Size: 0.69152313
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4871,7 +4871,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492180143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0059c1b2e7f2f84d9484475797cfe36, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a4f1068dab230345907b773fe828c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 1482557977}
@@ -5179,17 +5179,6 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1492180146}
-        m_MethodName: ProcessInfo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 61582801}
         m_MethodName: ProcessInfo
         m_Mode: 1
         m_Arguments:
@@ -5511,7 +5500,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1591156284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83086d167c75ae4e97427ae0a2b6c5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cedc84b902ba7f43a72be7dfd721415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _caseNumberText: {fileID: 1014144129}
@@ -5966,7 +5955,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1662667591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21bd6a573aeea3428e3ccd4f6d11b75, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f9d0eddcd0652d4bbdb678e7240b76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _informationText: {fileID: 1004079153}
@@ -6662,7 +6651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -798}
+  m_AnchoredPosition: {x: 130, y: -727}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1900796811
@@ -7403,7 +7392,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.690998}
+  m_AnchorMax: {x: 1, y: 0.69152313}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7569,7 +7558,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2081120746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229f5e85ea0ef0640b8add8f87a6b795, type: 3}
+  m_Script: {fileID: 11500000, guid: 42a30bb4e8fc05746937bd8477768e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _caseNumberInput: {fileID: 1369475347}
