@@ -16,8 +16,14 @@ public class OverviewPanel : MonoBehaviour
         _nameTitle.text = UIManager.Instance.activeCase.name;
         _dateTitle.text = DateTime.Today.ToString();
         _locationNotes.text = "LOCATION NOTES " + UIManager.Instance.activeCase.locationNotes;
-        _photoTaken.texture = UIManager.Instance.activeCase.photoTaken;
-        _photoNotes.text = UIManager.Instance.activeCase.photoNotes;
+
+        Texture2D reconstructedImage = new Texture2D(1, 1);
+        reconstructedImage.LoadImage(UIManager.Instance.activeCase.photoTaken);
+        //Texture img = (Texture)reconstructedImage;
+
+
+        _photoTaken.texture = (Texture) reconstructedImage;// UIManager.Instance.activeCase.photoTaken;
+        _photoNotes.text = "PHOTO NOTES " + UIManager.Instance.activeCase.photoNotes;
     }
 
 }

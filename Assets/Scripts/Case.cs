@@ -12,7 +12,7 @@ public class Case
     public string date;
     public string location;
     public string locationNotes;
-    public Texture photoTaken;
+    public byte[] photoTaken;
     public string photoNotes;
 
 }
