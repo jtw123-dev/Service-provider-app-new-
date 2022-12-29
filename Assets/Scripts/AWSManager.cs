@@ -11,6 +11,8 @@ using UnityEngine.UI;
 using Amazon.CognitoIdentity;
 using Amazon;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 public class AWSManager : MonoBehaviour {
 
     private static AWSManager _instance;
@@ -51,31 +53,8 @@ public class AWSManager : MonoBehaviour {
     private void Awake()
     {
         _instance = this;
-
         UnityInitializer.AttachToGameObject(this.gameObject);
         AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
-
-        // ResultText is a label used for displaying status information
-       
-       /* S3Client.ListBucketsAsync(new ListBucketsRequest(), (responseObject) =>
-        {
-            
-            if (responseObject.Exception == null)
-            {              
-                responseObject.Response.Buckets.ForEach((s3b) =>
-                {
-                    Debug.Log("Bucket Name: " + s3b.BucketName);
-                    
-                });
-            }
-            else
-            {
-                Debug.Log("AWS Error" + responseObject.Exception);
-            }
-        });*/
-
-
-
     }
     public void UploadToS3(string path, string caseID)
     {
@@ -103,5 +82,76 @@ public class AWSManager : MonoBehaviour {
              }
          }));
     }
+    public void GetList(string caseNumber,Action onComplete=null)
+    {
+        string target = "case#" + caseNumber;
 
+        Debug.Log("AWSManager::GetList()");
+
+        var request = new ListObjectsRequest()
+        {
+            BucketName = "casefilesnew"
+        };
+
+        S3Client.ListObjectsAsync(request, (responseObject) =>
+         {
+         if (responseObject.Exception == null)
+         {
+             bool caseFound = responseObject.Response.S3Objects.Any(obj => obj.Key == target);
+
+                 if (caseFound==true)
+                 {
+                     Debug.Log("Case Found");
+                     S3Client.GetObjectAsync("casefilesnew", target, (responseObj) =>
+                       {
+                           if (responseObj.Response.ResponseStream!=null)
+                           {
+                               byte[] data = null;
+                               using (StreamReader reader = new StreamReader(responseObj.Response.ResponseStream))
+                               {
+                                   using (MemoryStream memory = new MemoryStream())
+                                   {
+                                       var buffer = new byte[512];
+                                       var bytesRead = default(int);
+
+                                       while ((bytesRead =reader.BaseStream.Read(buffer,0,buffer.Length))>0)
+                                       {
+                                           memory.Write(buffer, 0, bytesRead);
+                                       }
+                                       data = memory.ToArray();
+                                   }
+                               }
+
+                               using (MemoryStream memory = new MemoryStream(data))
+                               {
+                                   BinaryFormatter bf = new BinaryFormatter();
+                                   Case downloadedCase = (Case)bf.Deserialize(memory);
+                                   Debug.Log( "Downloaded Case Name: "  + downloadedCase.name);
+                                   UIManager.Instance.activeCase = downloadedCase;
+
+                                   if (onComplete!=null)
+                                   {
+                                       onComplete();
+                                   }
+                                   
+                               }
+
+                           }
+                       });
+                 }
+
+                 else
+                 {
+                     Debug.Log("Case not found");
+                 }
+             }
+
+         else
+             {
+                 Debug.Log("Error getting list of items from S3: " + responseObject.Exception);
+             }
+
+         });
+          
+    }
 }

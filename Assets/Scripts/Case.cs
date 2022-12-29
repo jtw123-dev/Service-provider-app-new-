@@ -14,5 +14,4 @@ public class Case
     public string locationNotes;
     public byte[] photoTaken;
     public string photoNotes;
-
 }

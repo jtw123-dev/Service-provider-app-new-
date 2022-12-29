@@ -21,7 +21,6 @@ public class OverviewPanel : MonoBehaviour
         reconstructedImage.LoadImage(UIManager.Instance.activeCase.photoTaken);
         //Texture img = (Texture)reconstructedImage;
 
-
         _photoTaken.texture = (Texture) reconstructedImage;// UIManager.Instance.activeCase.photoTaken;
         _photoNotes.text = "PHOTO NOTES " + UIManager.Instance.activeCase.photoNotes;
     }

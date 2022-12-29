@@ -7,9 +7,9 @@ public class SelectPanel : MonoBehaviour
 {
     [SerializeField] private Text _informationText;
 
-
-    public void ProcessInfo()
-    {
-
+    public void OnEnable()
+    { 
+            _informationText.text = "Name " + UIManager.Instance.activeCase.name;    
     }
+
 }

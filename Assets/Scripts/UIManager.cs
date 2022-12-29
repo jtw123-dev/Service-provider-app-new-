@@ -6,7 +6,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 public class UIManager : MonoBehaviour
 {
-
     private static UIManager _instance;
     public static UIManager Instance
     {
@@ -46,7 +45,6 @@ public class UIManager : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         string filePath = Application.persistentDataPath + "/case#" + awsCase.caseID + ".dat";
 
-
         FileStream file = File.Create(filePath);
         bf.Serialize(file, awsCase);
 
@@ -55,10 +53,6 @@ public class UIManager : MonoBehaviour
         Debug.Log("Application Data Path: " + Application.persistentDataPath);
 
         AWSManager.Instance.UploadToS3(filePath, awsCase.caseID);
-
     }
-
-
-
 }
 
